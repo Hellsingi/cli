@@ -14,7 +14,6 @@
   "author": "Kovalevich Dmitry",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^4.1.0",
-    "commander": "^6.1.0"
+    "chalk": "^4.1.0"
   }
 }

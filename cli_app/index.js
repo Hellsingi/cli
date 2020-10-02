@@ -1,18 +1,16 @@
 const { pipeline } = require("stream");
-const program = require("./src/commander");
 const validate = require("./src/validateArgs");
 const myStreams = require('./src/streams')
 const chalk = require('chalk');
-const shift = +program.shift;
-const action = program.action;
-const input = program.input;
-const output = program.output;
+const parseArguments = require("./src/parseArgs.js")
 
-validate(shift, action);
+const argsObj = parseArguments()
 
-const readStream = myStreams.readStreamFunc(input)
-const writeStream = myStreams.writeStreamFunc(output)
-const transformStream = myStreams.transformStreamFunc(shift, action)
+validate(+argsObj.shift, argsObj.action);
+
+const readStream = myStreams.readStreamFunc(argsObj.input)
+const writeStream = myStreams.writeStreamFunc(argsObj.output)
+const transformStream = myStreams.transformStreamFunc(+argsObj.shift, argsObj.action)
 
 pipeline(
   readStream,
