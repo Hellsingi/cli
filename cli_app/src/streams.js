@@ -25,7 +25,7 @@ function writeStreamFunc(pathOutput) {
   if (pathOutput === undefined) {
     return process.stdout;
   } else if (isPathCorrect(pathOutput)) {
-    return fs.createWriteStream(pathOutput, { flags: "a" });
+    return fs.createWriteStream(pathOutput, { encoding: 'utf8', flags: "a" });
   } else {
     exitProcess("You specified an invalid output file path", 1);
   }
