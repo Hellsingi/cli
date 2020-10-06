@@ -29,7 +29,7 @@ The CLI tool is accepted 4 options (short alias and full name):
 
 **1.**
 ```bash
-$ node m.-a encode -s 7 -i "./input.txt" -o "./output.txt"
+$ node . -a encode -s 7 -i "./input.txt" -o "./output.txt"
 ```
 **2.**
 ```bash
